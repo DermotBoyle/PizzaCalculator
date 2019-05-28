@@ -6,14 +6,12 @@ import Result from './Result';
 
 import calculatePizzasNeeded from './lib/calculate-pizzas-needed';
 
-const initialState = {
-  numberOfPeople: 10,
-  slicesPerPerson: 2,
-  numberOfPizzas: calculatePizzasNeeded(10, 2),
-};
-
 class Application extends Component {
-  state = { ...initialState };
+  state = {
+    numberOfPeople: 0,
+    slicesPerPerson: 0,
+    numberOfPizzas: calculatePizzasNeeded(10, 2),
+  };
 
   updateNumberOfPeople = event => {
     const numberOfPeople = parseInt(event.target.value, 10);
@@ -38,7 +36,7 @@ class Application extends Component {
   };
 
   reset = () => {
-    this.setState({ ...initialState });
+    this.setState({ numberOfPeople: 0, slicesPerPerson: 0 });
   };
 
   render() {
